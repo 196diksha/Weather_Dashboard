@@ -19,6 +19,30 @@ npm run lint
 npm run build
 ```
 
+## Deploy Live
+
+### Option 1 (Recommended): Vercel
+1. Push this folder to GitHub.
+2. Go to Vercel dashboard and click **Add New Project**.
+3. Import your GitHub repo.
+4. Keep defaults:
+   - Framework: `Vite`
+   - Build Command: `npm run build`
+   - Output Directory: `dist`
+5. Click **Deploy**.
+
+`vercel.json` is included so React routes like `/historical` work after refresh.
+
+### Option 2: Netlify
+1. Run:
+   ```bash
+   npm run build
+   ```
+2. In Netlify, choose **Add new site** -> **Deploy manually**.
+3. Drag and drop the `dist` folder.
+
+`public/_redirects` is included, so SPA routes also work on Netlify.
+
 ## Implemented Requirements
 
 ### Global
@@ -62,5 +86,5 @@ npm run build
 - Responsive chart/card layout for mobile
 
 ## Notes
-- ECharts is imported modularly (core + required components only) to reduce bundle size.
+- ECharts is used through `echarts-for-react`.
 - Open-Meteo field availability can vary by region/time; unavailable values are shown as `N/A`.
